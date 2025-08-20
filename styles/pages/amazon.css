@@ -154,3 +154,8 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+.js-message-element
+{
+  opacity: 1;
+}

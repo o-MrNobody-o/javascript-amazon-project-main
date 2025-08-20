@@ -2,18 +2,18 @@ import { cart,removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
+  console.log('Current cart:', cart);
 let cartSummaryHTML = '';
 
-// i stopped qt 13.05.00
 cart.forEach((cartItem)=>{
-  const productId = cartItem.productId
+  const productId = cartItem.productId;
   let matchingProduct;
   products.forEach((product) => {
     if (product.id=== productId)
     {
       matchingProduct = product ;
     }
-  })
+  });
 cartSummaryHTML += `<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
   <div class="delivery-date">
     Delivery date: Tuesday, June 21
@@ -32,7 +32,7 @@ cartSummaryHTML += `<div class="cart-item-container js-cart-item-container-${mat
       </div>
       <div class="product-quantity">
         <span>
-          Quantity: <span class="quantity-label">${cart.quantity}</span>
+          Quantity: <span class="quantity-label">${cartItem.quantity}</span>
         </span>
         <span class="update-quantity-link link-primary">
           Update
