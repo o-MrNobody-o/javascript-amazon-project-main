@@ -3,10 +3,11 @@ import { getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import { getDeliveryOption } from "../../data/deliveryOption.js";
 
-let paySummaryHTML = '';
+
 
 export function renderPaymentSummary()
 {
+  let paySummaryHTML = '';
   let productPriceCents = 0;
   let shippingPriceCents = 0;
 
@@ -52,6 +53,6 @@ export function renderPaymentSummary()
 
           <button class="place-order-button button-primary">
             Place your order
-          </button>`
+          </button>`;
   document.querySelector('.js-payment-summary').innerHTML = paySummaryHTML;
 }
