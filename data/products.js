@@ -34,7 +34,30 @@ class Prodcut
     return `$${formatCurrency(this.priceCents)}`;
   }
 
+  extraInfoHTML()
+  {
+    return '';
+  }
+
 }
+
+class Clothing extends Prodcut 
+{
+  sizeChartLink;
+
+  constructor(prodcutDetails)
+  {
+    super(prodcutDetails );
+    this.sizeChartLink = prodcutDetails.sizeChartLink ;
+  }
+
+  extraInfoHTML()
+  {
+    return `<a href="${this.sizeChartLink}" target="_blank">Size chart</a>`;
+  }
+
+}
+
 
 export const products = [
   {
@@ -696,5 +719,12 @@ export const products = [
     ]
   }
 ].map( (prodcutDetails) => {
+  if (prodcutDetails.type === 'clothing')
+  {
+    return new Clothing(prodcutDetails);
+  }
   return new Prodcut(prodcutDetails);
 });
+
+
+// i stopped at 18.50.00
