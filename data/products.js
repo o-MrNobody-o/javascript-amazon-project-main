@@ -7,7 +7,7 @@ export function getProduct(productId)
   return matchingProduct;
 };
 
-class Prodcut
+class Product
 {
   id;
   image;
@@ -15,13 +15,13 @@ class Prodcut
   rating;
   priceCents;
 
-  constructor (prodcutDetails)
+  constructor (productDetails)
   {
-    this.id = prodcutDetails.id;
-    this.image = prodcutDetails.image;
-    this.name = prodcutDetails.name;
-    this.rating = prodcutDetails.rating;
-    this.priceCents = prodcutDetails.priceCents;
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
   }
   
   getStarsUrl()
@@ -41,14 +41,14 @@ class Prodcut
 
 }
 
-class Clothing extends Prodcut 
+class Clothing extends Product 
 {
   sizeChartLink;
 
-  constructor(prodcutDetails)
+  constructor(productDetails)
   {
-    super(prodcutDetails );
-    this.sizeChartLink = prodcutDetails.sizeChartLink ;
+    super(productDetails );
+    this.sizeChartLink = productDetails.sizeChartLink ;
   }
 
   extraInfoHTML()
@@ -65,26 +65,26 @@ console.log(date.toLocaleTimeString());
 
 export let products = [];
 
-export function loadProducts(func)
+export function loadProducts(fun)
 {
   const xhr = new XMLHttpRequest();
   
   xhr.addEventListener('load',() => {
-    products = JSON.parse(xhr.response).map( (prodcutDetails) => {
-      if (prodcutDetails.type === 'clothing')
+    products = JSON.parse(xhr.response).map( (productDetails) => {
+      if (productDetails.type === 'clothing')
       {
-        return new Clothing(prodcutDetails);
+        return new Clothing(productDetails);
       }
-        return new Prodcut(prodcutDetails);
+        return new Product(productDetails);
     });
-    func();
+    fun();
   });
   
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
 
-loadProducts();
+
 
 /*
 export const products = [
