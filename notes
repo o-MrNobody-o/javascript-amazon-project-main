@@ -10,3 +10,6 @@
 * Async await :
 - shortcut for promises , remove extra code.
 - await let us wait for a promise to finish , before going to the next line.
+
+* Error handling : 
+- for http request failure.
