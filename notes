@@ -6,3 +6,7 @@
 - Asynchronous code → allows the program to keep running while that task takes time in the background.
 - Asynchronous code allows your program to keep running while a task that takes time is being completed in the background.
 - fetsh() is a better way to make HTTP requests.
+
+* Async await :
+- shortcut for promises , remove extra code.
+- await let us wait for a promise to finish , before going to the next line.
